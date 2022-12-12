@@ -1,0 +1,28 @@
+{
+  "name": "fluc-lang-js",
+  "version": "1.0.0",
+  "description": "Multitarget functional programming language Fluc",
+  "main": "index.js",
+  "scripts": {
+    "tsc": "tsc",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/flucrum/fluc-lang-js.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/flucrum/fluc-lang-js/issues"
+  },
+  "homepage": "https://github.com/flucrum/fluc-lang-js#readme",
+  "dependencies": {
+    "mocha": "^10.2.0",
+    "typescript": "^4.9.4"
+  },
+  "devDependencies": {
+    "@types/node": "^18.11.13"
+  }
+}
