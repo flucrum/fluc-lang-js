@@ -2,7 +2,7 @@
     "compilerOptions": {
         "outDir": "js",
         "rootDir": "ts",
-        "target": "ES6"
+        "target": "ES5"
       },
     "exclude": ["node_modules", "**/*.spec.ts"]
 }
