@@ -1,22 +1,20 @@
-import * as fs from "fs";
-import * as assert from "assert";
+import * as fsModule from "fs";
+import * as assertModule from "assert";
+import * as configModule from "./config";
+import * as tokenDefModule from "./lexer/token-def";
 
-export type TokenDef = {
-    name: string,
-    regExp: RegExp,
-}
 
 export class LuxLangLexer 
 {
-    protected tokenDefs: Array<TokenDef>;
+    protected tokenDefs: Array<tokenDefModule.TokenDef>;
 
-    constructor(tokenDefs: Array<TokenDef>) {
+    constructor(tokenDefs: Array<tokenDefModule.TokenDef>) {
         this.tokenDefs = tokenDefs;
     }
 }
 
 export function parseLoadFromConfig(configPath: string, coding: string = 'utf8'): LuxLangLexer
 {
-    const configFileContent = fs.readFileSync(configPath, {encoding: coding as unknown as undefined});
+    const config = configModule.loadFromFile(configPath);
     return new LuxLangLexer([]);
 }
