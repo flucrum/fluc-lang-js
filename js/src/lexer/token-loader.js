@@ -6,7 +6,7 @@ var pathModule = require("path");
 var fsModule = require("fs");
 var assertModule = require("assert");
 function load(configPath, tokenConfigPaths) {
-    if (!fsModule.lstatSync(configPath).isDirectory) {
+    if (!fsModule.lstatSync(configPath).isDirectory()) {
         configPath = pathModule.dirname(configPath);
     }
     var tokenGroups = tokenConfigPaths.map(function (tcp) {

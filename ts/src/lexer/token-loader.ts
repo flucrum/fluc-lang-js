@@ -4,7 +4,7 @@ import * as fsModule from "fs";
 import * as assertModule from "assert";
 
 export function load(configPath: string, tokenConfigPaths: string[]): Array<tokenDefModule.TokenDef> {
-    if(!fsModule.lstatSync(configPath).isDirectory) {
+    if(!fsModule.lstatSync(configPath).isDirectory()) {
         configPath = pathModule.dirname(configPath);
     }
     let tokenGroups = tokenConfigPaths.map((tcp: string) => {
