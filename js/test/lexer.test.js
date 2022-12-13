@@ -27,3 +27,118 @@ describe("function parseLoadFromConfig", function () {
         ], lexer.tokenDefs);
     });
 });
+describe("Test analizing text", function () {
+    it("test correct text analyzing", function () {
+        var text = "fun :=  x, y -> x + y";
+        var lexer = {
+            tokenDefs: [
+                { name: "math", regExp: "[+\\-\\\\*]" },
+                { name: "arrow", regExp: "->" },
+                { name: "symbol", regExp: "[a-zA-Z_]+[a-zA-Z_0-9]*" },
+                { name: "def", regExp: ":=" },
+                { name: "space", regExp: "\\s+" },
+                { name: "subdot", regExp: "," },
+            ]
+        };
+        var resultTokens = lexerModule.analyzeText(text, lexer);
+        var nominal = [
+            {
+                name: "symbol",
+                regExp: "[a-zA-Z_]+[a-zA-Z_0-9]*",
+                pos: 0,
+                val: "fun",
+            },
+            {
+                name: "space",
+                regExp: "\\s+",
+                pos: 3,
+                val: " ",
+            },
+            {
+                name: "def",
+                regExp: ":=",
+                pos: 4,
+                val: ":=",
+            },
+            {
+                name: "space",
+                regExp: "\\s+",
+                pos: 6,
+                val: "  ",
+            },
+            {
+                name: "symbol",
+                regExp: "[a-zA-Z_]+[a-zA-Z_0-9]*",
+                pos: 8,
+                val: "x",
+            },
+            {
+                name: "subdot",
+                regExp: ",",
+                pos: 9,
+                val: ",",
+            },
+            {
+                name: "space",
+                regExp: "\\s+",
+                pos: 10,
+                val: " ",
+            },
+            {
+                name: "symbol",
+                regExp: "[a-zA-Z_]+[a-zA-Z_0-9]*",
+                pos: 11,
+                val: "y",
+            },
+            {
+                name: "space",
+                regExp: "\\s+",
+                pos: 12,
+                val: " ",
+            },
+            {
+                name: "arrow",
+                regExp: "->",
+                pos: 13,
+                val: "->",
+            },
+            {
+                name: "space",
+                regExp: "\\s+",
+                pos: 15,
+                val: " ",
+            },
+            {
+                name: "symbol",
+                regExp: "[a-zA-Z_]+[a-zA-Z_0-9]*",
+                pos: 16,
+                val: 'x',
+            },
+            {
+                name: "space",
+                regExp: "\\s+",
+                pos: 17,
+                val: " ",
+            },
+            {
+                name: "math",
+                regExp: "[+\\-\\\\*]",
+                pos: 18,
+                val: '+',
+            },
+            {
+                name: "space",
+                regExp: "\\s+",
+                pos: 19,
+                val: " ",
+            },
+            {
+                name: "symbol",
+                regExp: "[a-zA-Z_]+[a-zA-Z_0-9]*",
+                pos: 20,
+                val: 'y',
+            },
+        ];
+        assertModule.deepEqual(nominal, resultTokens);
+    });
+});
