@@ -2,7 +2,7 @@
     { "name": "math-plus", "regExp": "\\+" },
     { "name": "math-minus", "regExp": "\\-" },
     { "name": "math-mult", "regExp": "\\*" },
-    { "name": "math-div", "regExp": "\\\\" },
+    { "name": "math-div", "regExp": "\\/" },
     { "name": "math-mod", "regExp": "\\%" },
-    { "name": "math-nat-div", "regExp": "\\/" }
+    { "name": "math-nat-div", "regExp": "\\\\\\\\" }
 ]

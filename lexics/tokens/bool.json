@@ -1,0 +1,9 @@
+[
+    { "name": "bool-not", "regExp": "!" },
+    { "name": "bool-equals", "regExp": "=" },
+    { "name": "bool-not-equals", "regExp": "!=" },
+    { "name": "bool-more", "regExp": ">" },
+    { "name": "bool-less", "regExp": "<" },
+    { "name": "bool-more-eq", "regExp": ">=" },
+    { "name": "bool-less-eq", "regExp": "<=" }
+]

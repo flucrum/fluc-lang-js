@@ -1,10 +1,14 @@
 [
-    { "name": "symbol", "regExp": "[a-z_]+[a-zA-Z_0-9]*" },
-    { "name": "type-symbol", "regExp": "[A-Z]+[a-zA-Z_0-9]*" },
+    { "name": "null", "regExp": "#null" },
+    { "name": "true", "regExp": "#true" },
+    { "name": "false", "regExp": "#false" },
     { "name": "string-dq", "regExp": "\\\"([^\\\"]|\")*\"" },
     { "name": "string-sq", "regExp": "'([^\\']|')*'" },
     { "name": "integer", "regExp": "[0-9]+" },
     { "name": "float", "regExp": "[0-9]*\\.[0-9]+" },
+
+    { "name": "symbol", "regExp": "[a-z_]+[a-zA-Z_0-9]*" },
+    { "name": "type-symbol", "regExp": "[A-Z]+[a-zA-Z_0-9]*" },
 
     { "name": "defn", "regExp": ":" },
     { "name": "defi", "regExp": "::" },
@@ -22,5 +26,7 @@
     { "name": "r-br-open", "regExp": "\\(" },
     { "name": "r-br-close", "regExp": "\\)" },
     { "name": "sq-br-open", "regExp": "\\[" },
-    { "name": "sq-br-close", "regExp": "\\]" }
+    { "name": "sq-br-close", "regExp": "\\]" },
+
+    { "name": "inline-comment", "regExp": "\\/\\/.*$" }
 ]
