@@ -30,13 +30,13 @@ describe("function parseLoadFromConfig", () => {
 
 describe("Test analizing text", () => {
     it("test correct text analyzing", () => {
-        let text = "fun :=  x, y -> x + y";
+        let text = "fun:  x, y -> x + y";
         let lexer: lexerModule.FlucLangLexer = {
             tokenDefs: [
                 { name: "math", regExp: "[+\\-\\\\*]" },
                 { name: "arrow", regExp: "->" },
                 { name: "symbol", regExp: "[a-zA-Z_]+[a-zA-Z_0-9]*" },
-                { name: "def", regExp: ":="},
+                { name: "def", regExp: ":"},
                 { name: "space", regExp: "\\s+"},
                 { name: "subdot", regExp: ","},
             ]
@@ -50,34 +50,40 @@ describe("Test analizing text", () => {
                 val: "fun",
             },
             {
-                name: "space",
-                regExp: "\\s+",
-                pos: 3,
-                val: " ",
-            },
-            {
                 name: "def",
-                regExp: ":=",
-                pos: 4,
-                val: ":=",
+                regExp: ":",
+                pos: 3,
+                val: ":",
             },
             {
                 name: "space",
                 regExp: "\\s+",
-                pos: 6,
+                pos: 4,
                 val: "  ",
             },
             {
                 name: "symbol",
                 regExp: "[a-zA-Z_]+[a-zA-Z_0-9]*",
-                pos: 8,
+                pos: 6,
                 val: "x",
             },
             {
                 name: "subdot",
                 regExp: ",",
-                pos: 9,
+                pos: 7,
                 val: ",",
+            },
+            {
+                name: "space",
+                regExp: "\\s+",
+                pos: 8,
+                val: " ",
+            },
+            {
+                name: "symbol",
+                regExp: "[a-zA-Z_]+[a-zA-Z_0-9]*",
+                pos: 9,
+                val: "y",
             },
             {
                 name: "space",
@@ -86,22 +92,22 @@ describe("Test analizing text", () => {
                 val: " ",
             },
             {
-                name: "symbol",
-                regExp: "[a-zA-Z_]+[a-zA-Z_0-9]*",
+                name: "arrow",
+                regExp: "->",
                 pos: 11,
-                val: "y",
+                val: "->",
             },
             {
                 name: "space",
                 regExp: "\\s+",
-                pos: 12,
+                pos: 13,
                 val: " ",
             },
             {
-                name: "arrow",
-                regExp: "->",
-                pos: 13,
-                val: "->",
+                name: "symbol",
+                regExp: "[a-zA-Z_]+[a-zA-Z_0-9]*",
+                pos: 14,
+                val: 'x',
             },
             {
                 name: "space",
@@ -110,11 +116,11 @@ describe("Test analizing text", () => {
                 val: " ",
             },
             {
-                name: "symbol",
-                regExp: "[a-zA-Z_]+[a-zA-Z_0-9]*",
+                name: "math",
+                regExp: "[+\\-\\\\*]",
                 pos: 16,
-                val: 'x',
-            },
+                val: '+',
+            }, 
             {
                 name: "space",
                 regExp: "\\s+",
@@ -122,21 +128,9 @@ describe("Test analizing text", () => {
                 val: " ",
             },
             {
-                name: "math",
-                regExp: "[+\\-\\\\*]",
-                pos: 18,
-                val: '+',
-            }, 
-            {
-                name: "space",
-                regExp: "\\s+",
-                pos: 19,
-                val: " ",
-            },
-            {
                 name: "symbol",
                 regExp: "[a-zA-Z_]+[a-zA-Z_0-9]*",
-                pos: 20,
+                pos: 18,
                 val: 'y',
             },
         ]
