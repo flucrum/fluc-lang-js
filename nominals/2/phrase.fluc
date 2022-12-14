@@ -1,0 +1,2 @@
+var1: x -> composeFunc func x
+var2: x, y -> calc (x + y) - 2 * y

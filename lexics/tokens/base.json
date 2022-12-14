@@ -9,10 +9,18 @@
     { "name": "defn", "regExp": ":" },
     { "name": "defi", "regExp": "::" },
 
-    { "name": "space", "regExp": " +"},
-    { "name": "tab", "regExp": "\\t+"},
-    { "name": "new-line", "regExp": "[\\r\\n]+"},
+    { "name": "space", "regExp": " +" },
+    { "name": "tab", "regExp": "\\t+" },
+    { "name": "new-line", "regExp": "[\\r\\n]+" },
 
-    { "name": "dot", "regExp": "\\."},
-    { "name": "subdot", "regExp": ","}
+    { "name": "dot", "regExp": "\\." },
+    { "name": "comma", "regExp": "," },
+
+    { "name": "conveyer", "regExp": "\\|>" },
+    { "name": "arrow", "regExp": "->" },
+    
+    { "name": "r-br-open", "regExp": "\\(" },
+    { "name": "r-br-close", "regExp": "\\)" },
+    { "name": "sq-br-open", "regExp": "\\[" },
+    { "name": "sq-br-close", "regExp": "\\]" }
 ]
