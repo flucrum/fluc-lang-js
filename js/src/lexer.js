@@ -40,7 +40,6 @@ function analyzeText(str, lexer, maxIterationsGuargInt) {
         var avTok = availableTokens[0];
         var flucToken = {
             name: avTok.name,
-            regExp: avTok.regExp,
             pos: (tokensResult.length > 0)
                 ? tokensResult
                     .map(function (ft) { return ft.val.length; })

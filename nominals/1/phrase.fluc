@@ -1,0 +1,6 @@
+dat :: String
+dat: "aboba \" doda 123"
+dat: 'aboba \' 
+doda 123'
+float12: 12.314
+	intVal: 11

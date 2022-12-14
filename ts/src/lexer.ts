@@ -10,7 +10,6 @@ export type FlucLangLexer = {
 
 export type FlucToken = {
     name: string,
-    regExp: string,
     pos: number,
     val: string
 }
@@ -52,7 +51,6 @@ export function analyzeText(str: string, lexer: FlucLangLexer, maxIterationsGuar
         let avTok = availableTokens[0];
         let flucToken: FlucToken = {
             name: avTok.name,
-            regExp: avTok.regExp,
             pos: (tokensResult.length > 0) 
                 ? tokensResult
                     .map((ft) => { return ft.val.length })
