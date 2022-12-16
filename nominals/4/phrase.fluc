@@ -1,0 +1,3 @@
+a : "some string" ++ "another string"
+b:: String -> Int
+export b : x -> length x

@@ -32,4 +32,13 @@ describe("Test syntax", () => {
         );
         assertModule.deepEqual(nominalTokens, resultTokens);
     });
+
+    it("nominal4", () => {
+        let text = fsModule.readFileSync(pathModule.resolve(__dirname, "../../nominals/4/phrase.fluc"), "utf8");
+        let resultTokens = lexerModule.analyzeText(text, lexer);
+        let nominalTokens = JSON.parse(
+            fsModule.readFileSync(pathModule.resolve(__dirname, "../../nominals/4/tokens.json"), "utf8")
+        );
+        assertModule.deepEqual(nominalTokens, resultTokens);
+    });
 });

@@ -24,4 +24,10 @@ describe("Test syntax", function () {
         var nominalTokens = JSON.parse(fsModule.readFileSync(pathModule.resolve(__dirname, "../../nominals/3/tokens.json"), "utf8"));
         assertModule.deepEqual(nominalTokens, resultTokens);
     });
+    it("nominal4", function () {
+        var text = fsModule.readFileSync(pathModule.resolve(__dirname, "../../nominals/4/phrase.fluc"), "utf8");
+        var resultTokens = lexerModule.analyzeText(text, lexer);
+        var nominalTokens = JSON.parse(fsModule.readFileSync(pathModule.resolve(__dirname, "../../nominals/4/tokens.json"), "utf8"));
+        assertModule.deepEqual(nominalTokens, resultTokens);
+    });
 });

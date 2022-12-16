@@ -2,6 +2,7 @@
     "tokenDefsFilePaths": [
         "tokens/base.json",
         "tokens/math.json",
-        "tokens/bool.json"
+        "tokens/bool.json",
+        "tokens/list.json"
     ]
 }
