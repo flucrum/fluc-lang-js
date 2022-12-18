@@ -1,0 +1,51 @@
+[
+    {
+        "cascade": 0,
+        "tokens": [
+            { "name": "symbol", "pos": 0, "val": "var1" },
+            { "name": "defn", "pos": 4, "val": ":" },
+            { "name": "space", "pos": 5, "val": " " },
+            { "name": "symbol", "pos": 6, "val": "x" },
+            { "name": "space", "pos": 7, "val": " " },
+            { "name": "arrow", "pos": 8, "val": "->" },
+            { "name": "space", "pos": 10, "val": " " },
+            { "name": "symbol", "pos": 11, "val": "composeFunc" },
+            { "name": "space", "pos": 22, "val": " " },
+            { "name": "symbol", "pos": 23, "val": "func" },
+            { "name": "space", "pos": 27, "val": " " },
+            { "name": "symbol", "pos": 28, "val": "x" }
+        ]
+    },
+    {
+        "cascade": 0,
+        "tokens": [
+            { "name": "symbol", "pos": 31, "val": "var2" },
+            { "name": "defn", "pos": 35, "val": ":" },
+            { "name": "space", "pos": 36, "val": " " },
+            { "name": "symbol", "pos": 37, "val": "x" },
+            { "name": "comma", "pos": 38, "val": "," },
+            { "name": "space", "pos": 39, "val": " " },
+            { "name": "symbol", "pos": 40, "val": "y" },
+            { "name": "space", "pos": 41, "val": " " },
+            { "name": "arrow", "pos": 42, "val": "->" },
+            { "name": "space", "pos": 44, "val": " " },
+            { "name": "symbol", "pos": 45, "val": "calc" },
+            { "name": "space", "pos": 49, "val": " " },
+            { "name": "r-br-open", "pos": 50, "val": "(" },
+            { "name": "symbol", "pos": 51, "val": "x" },
+            { "name": "space", "pos": 52, "val": " " },
+            { "name": "math-plus", "pos": 53, "val": "+" },
+            { "name": "space", "pos": 54, "val": " " },
+            { "name": "symbol", "pos": 55, "val": "y" },
+            { "name": "r-br-close", "pos": 56, "val": ")" },
+            { "name": "space", "pos": 57, "val": " " },
+            { "name": "math-minus", "pos": 58, "val": "-" },
+            { "name": "space", "pos": 59, "val": " " },
+            { "name": "integer", "pos": 60, "val": "2" },
+            { "name": "space", "pos": 61, "val": " " },
+            { "name": "math-mult", "pos": 62, "val": "*" },
+            { "name": "space", "pos": 63, "val": " " },
+            { "name": "symbol", "pos": 64, "val": "y" }
+        ]
+    }
+]

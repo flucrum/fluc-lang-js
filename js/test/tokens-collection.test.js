@@ -28,6 +28,12 @@ describe("Test syntax", function () {
             var nominalTokens = JSON.parse(fsModule.readFileSync(pathModule.resolve(__dirname, "../../nominals/2/tokens.json"), "utf8"));
             assertModule.deepEqual(nominalTokens, resultTokens);
         });
+        it("test parser", function () {
+            var tokens = JSON.parse(fsModule.readFileSync(pathModule.resolve(__dirname, "../../nominals/2/tokens.json"), "utf8"));
+            var resultLines = parserModule.parseLines(tokens);
+            var nominalLines = JSON.parse(fsModule.readFileSync(pathModule.resolve(__dirname, "../../nominals/2/lines.json"), "utf8"));
+            assertModule.deepEqual(nominalLines, resultLines);
+        });
     });
     describe("nominal 3", function () {
         it("test lexer", function () {
@@ -36,6 +42,12 @@ describe("Test syntax", function () {
             var nominalTokens = JSON.parse(fsModule.readFileSync(pathModule.resolve(__dirname, "../../nominals/3/tokens.json"), "utf8"));
             assertModule.deepEqual(nominalTokens, resultTokens);
         });
+        it("test parser", function () {
+            var tokens = JSON.parse(fsModule.readFileSync(pathModule.resolve(__dirname, "../../nominals/3/tokens.json"), "utf8"));
+            var resultLines = parserModule.parseLines(tokens);
+            var nominalLines = JSON.parse(fsModule.readFileSync(pathModule.resolve(__dirname, "../../nominals/3/lines.json"), "utf8"));
+            assertModule.deepEqual(nominalLines, resultLines);
+        });
     });
     describe("nominal 4", function () {
         it("test lexer", function () {
@@ -43,6 +55,12 @@ describe("Test syntax", function () {
             var resultTokens = lexerModule.analyzeText(text, lexer);
             var nominalTokens = JSON.parse(fsModule.readFileSync(pathModule.resolve(__dirname, "../../nominals/4/tokens.json"), "utf8"));
             assertModule.deepEqual(nominalTokens, resultTokens);
+        });
+        it("test parser", function () {
+            var tokens = JSON.parse(fsModule.readFileSync(pathModule.resolve(__dirname, "../../nominals/4/tokens.json"), "utf8"));
+            var resultLines = parserModule.parseLines(tokens);
+            var nominalLines = JSON.parse(fsModule.readFileSync(pathModule.resolve(__dirname, "../../nominals/4/lines.json"), "utf8"));
+            assertModule.deepEqual(nominalLines, resultLines);
         });
     });
 });

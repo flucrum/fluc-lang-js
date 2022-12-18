@@ -1,0 +1,47 @@
+[
+    {
+        "cascade": 0,
+        "tokens": [
+            { "name": "symbol", "pos": 0, "val": "a" },
+            { "name": "space", "pos": 1, "val": " " },
+            { "name": "defn", "pos": 2, "val": ":" },
+            { "name": "space", "pos": 3, "val": " " },
+            { "name": "string-dq", "pos": 4, "val": "\"some string\"" },
+            { "name": "space", "pos": 17, "val": " " },
+            { "name": "concat", "pos": 18, "val": "++" },
+            { "name": "space", "pos": 20, "val": " " },
+            { "name": "string-dq", "pos": 21, "val": "\"another string\"" }
+        ]
+    },
+    {
+        "cascade": 0,
+        "tokens": [
+            { "name": "symbol", "pos": 39, "val": "b" },
+            { "name": "defi", "pos": 40, "val": "::" },
+            { "name": "space", "pos": 42, "val": " " },
+            { "name": "type", "pos": 43, "val": "String" },
+            { "name": "space", "pos": 49, "val": " " },
+            { "name": "arrow", "pos": 50, "val": "->" },
+            { "name": "space", "pos": 52, "val": " " },
+            { "name": "type", "pos": 53, "val": "Int" }
+        ]
+    },
+    {
+        "cascade": 0,
+        "tokens": [
+            { "name": "symbol", "pos": 58, "val": "export" },
+            { "name": "space", "pos": 64, "val": " " },
+            { "name": "symbol", "pos": 65, "val": "b" },
+            { "name": "space", "pos": 66, "val": " " },
+            { "name": "defn", "pos": 67, "val": ":" },
+            { "name": "space", "pos": 68, "val": " " },
+            { "name": "symbol", "pos": 69, "val": "x" },
+            { "name": "space", "pos": 70, "val": " " },
+            { "name": "arrow", "pos": 71, "val": "->" },
+            { "name": "space", "pos": 73, "val": " " },
+            { "name": "symbol", "pos": 74, "val": "length" },
+            { "name": "space", "pos": 80, "val": " " },
+            { "name": "symbol", "pos": 81, "val": "x" }
+        ]
+    }
+]

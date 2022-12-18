@@ -16,7 +16,7 @@ describe("Test syntax", () => {
             );
             assertModule.deepEqual(nominalTokens, resultTokens);
         });
-        
+
         it("test parser", () => {
             let tokens = JSON.parse(
                 fsModule.readFileSync(pathModule.resolve(__dirname, "../../nominals/1/tokens.json"), "utf8")
@@ -39,6 +39,18 @@ describe("Test syntax", () => {
             );
             assertModule.deepEqual(nominalTokens, resultTokens);
         });
+
+        it("test parser", () => {
+            let tokens = JSON.parse(
+                fsModule.readFileSync(pathModule.resolve(__dirname, "../../nominals/2/tokens.json"), "utf8")
+            );
+    
+            let resultLines = parserModule.parseLines(tokens);
+            let nominalLines = JSON.parse(
+                fsModule.readFileSync(pathModule.resolve(__dirname, "../../nominals/2/lines.json"), "utf8")
+            );
+            assertModule.deepEqual(nominalLines, resultLines);
+        });
     });
 
     describe("nominal 3", () => {
@@ -50,6 +62,18 @@ describe("Test syntax", () => {
             );
             assertModule.deepEqual(nominalTokens, resultTokens);
         });
+
+        it("test parser", () => {
+            let tokens = JSON.parse(
+                fsModule.readFileSync(pathModule.resolve(__dirname, "../../nominals/3/tokens.json"), "utf8")
+            );
+    
+            let resultLines = parserModule.parseLines(tokens);
+            let nominalLines = JSON.parse(
+                fsModule.readFileSync(pathModule.resolve(__dirname, "../../nominals/3/lines.json"), "utf8")
+            );
+            assertModule.deepEqual(nominalLines, resultLines);
+        });
     });
 
     describe("nominal 4", () => {
@@ -60,6 +84,18 @@ describe("Test syntax", () => {
                 fsModule.readFileSync(pathModule.resolve(__dirname, "../../nominals/4/tokens.json"), "utf8")
             );
             assertModule.deepEqual(nominalTokens, resultTokens);
+        });
+
+        it("test parser", () => {
+            let tokens = JSON.parse(
+                fsModule.readFileSync(pathModule.resolve(__dirname, "../../nominals/4/tokens.json"), "utf8")
+            );
+    
+            let resultLines = parserModule.parseLines(tokens);
+            let nominalLines = JSON.parse(
+                fsModule.readFileSync(pathModule.resolve(__dirname, "../../nominals/4/lines.json"), "utf8")
+            );
+            assertModule.deepEqual(nominalLines, resultLines);
         });
     });
 });

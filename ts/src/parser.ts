@@ -3,23 +3,31 @@ import * as lexerModule from "./lexer";
 type Phrase = Array<lexerModule.FlucToken>;
 
 type Line = {
-    cascadeShift: number;
+    cascade: number;
     tokens: Array<lexerModule.FlucToken>;
 }
 
 export function parseLines(tokens: Array<lexerModule.FlucToken>): Array<Line>
 {
-    let tokensWithoutTabs: Array<lexerModule.FlucToken> = replaceTabs(tokens);
+    let tokensWithoutTabs: Array<lexerModule.FlucToken> = replaceTabsAndSpaces(tokens);
     let lines: Array<Line> = splitToLines(tokensWithoutTabs);
     return cascadeLines(lines);
 }
 
-function replaceTabs(tokens: Array<lexerModule.FlucToken>): Array<lexerModule.FlucToken>
+function replaceTabsAndSpaces(tokens: Array<lexerModule.FlucToken>): Array<lexerModule.FlucToken>
 {
     let result: Array<lexerModule.FlucToken> = [];
     tokens.forEach(el => {
         if(el.name === 'tab') {
-            for(let i = 0; i < 4; i ++) {
+            for(let i = 0; i < 4 * el.val.length; i ++) {
+                result.push({
+                    name: "space",
+                    val: " ",
+                    pos: el.pos,
+                });
+            }
+        } else if(el.name === 'space') {
+            for(let i = 0; i < el.val.length; i ++) {
                 result.push({
                     name: "space",
                     val: " ",
@@ -39,14 +47,14 @@ function splitToLines(tokens: Array<lexerModule.FlucToken>): Array<Line>
     let curLine: Array<lexerModule.FlucToken> = [];
     tokens.forEach(el => {
         if(el.name === 'new-line') {
-            lines.push({ cascadeShift: 0, tokens: curLine, });
+            lines.push({ cascade: 0, tokens: curLine, });
             curLine = [];
         } else {
             curLine.push(el);
         }
     });
     if(curLine.length !== 0) {
-        lines.push({ cascadeShift: 0, tokens: curLine, });
+        lines.push({ cascade: 0, tokens: curLine, });
     }
     return lines;
 }
@@ -64,16 +72,15 @@ function cascadeLines(lines: Array<Line>): Array<Line>
                 break;
             }
         }
-        let cascades = Math.floor(spaces / 4);
-        let spacesToDelete = cascades * 4;
+        
         let tokens = [];
-        for(let i = cascades * 4; i < tokensLength; i++)
+        for(let i = spaces; i < tokensLength; i++)
         {
             tokens.push(el.tokens[i]);
         }
         return {
             tokens: tokens,
-            cascadeShift: cascades,
+            cascade: spaces,
         };
     });
 }

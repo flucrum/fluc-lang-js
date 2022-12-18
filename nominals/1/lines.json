@@ -1,6 +1,6 @@
 [
     {
-        "cascadeShift": 0,
+        "cascade": 0,
         "tokens": [
             {"name": "symbol", "pos": 0, "val": "dat"},
             {"name": "space", "pos": 3, "val": " "},
@@ -10,7 +10,7 @@
         ]
     },
     {
-        "cascadeShift": 0,
+        "cascade": 0,
         "tokens": [
             {"name": "symbol", "pos": 15, "val": "dat"},
             {"name": "defn", "pos": 18, "val": ":"},
@@ -19,7 +19,7 @@
         ]
     },
     {
-        "cascadeShift": 0,
+        "cascade": 0,
         "tokens": [
             {"name": "symbol", "pos": 41, "val": "dat"},
             {"name": "defn", "pos": 44, "val": ":"},
@@ -28,7 +28,7 @@
         ]
     },
     {
-        "cascadeShift": 0,
+        "cascade": 0,
         "tokens": [
             {"name": "symbol", "pos": 69, "val": "float12"},
             {"name": "defn", "pos": 76, "val": ":"},
@@ -37,7 +37,7 @@
         ]
     },
     {
-        "cascadeShift": 1,
+        "cascade": 4,
         "tokens": [
             {"name": "symbol", "pos": 87, "val": "intVal"},
             {"name": "defn", "pos": 93, "val": ":"},

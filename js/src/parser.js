@@ -2,16 +2,25 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.parseLines = void 0;
 function parseLines(tokens) {
-    var tokensWithoutTabs = replaceTabs(tokens);
+    var tokensWithoutTabs = replaceTabsAndSpaces(tokens);
     var lines = splitToLines(tokensWithoutTabs);
     return cascadeLines(lines);
 }
 exports.parseLines = parseLines;
-function replaceTabs(tokens) {
+function replaceTabsAndSpaces(tokens) {
     var result = [];
     tokens.forEach(function (el) {
         if (el.name === 'tab') {
-            for (var i = 0; i < 4; i++) {
+            for (var i = 0; i < 4 * el.val.length; i++) {
+                result.push({
+                    name: "space",
+                    val: " ",
+                    pos: el.pos,
+                });
+            }
+        }
+        else if (el.name === 'space') {
+            for (var i = 0; i < el.val.length; i++) {
                 result.push({
                     name: "space",
                     val: " ",
@@ -30,7 +39,7 @@ function splitToLines(tokens) {
     var curLine = [];
     tokens.forEach(function (el) {
         if (el.name === 'new-line') {
-            lines.push({ cascadeShift: 0, tokens: curLine, });
+            lines.push({ cascade: 0, tokens: curLine, });
             curLine = [];
         }
         else {
@@ -38,7 +47,7 @@ function splitToLines(tokens) {
         }
     });
     if (curLine.length !== 0) {
-        lines.push({ cascadeShift: 0, tokens: curLine, });
+        lines.push({ cascade: 0, tokens: curLine, });
     }
     return lines;
 }
@@ -54,15 +63,13 @@ function cascadeLines(lines) {
                 break;
             }
         }
-        var cascades = Math.floor(spaces / 4);
-        var spacesToDelete = cascades * 4;
         var tokens = [];
-        for (var i = cascades * 4; i < tokensLength; i++) {
+        for (var i = spaces; i < tokensLength; i++) {
             tokens.push(el.tokens[i]);
         }
         return {
             tokens: tokens,
-            cascadeShift: cascades,
+            cascade: spaces,
         };
     });
 }
