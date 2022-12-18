@@ -4,7 +4,7 @@ exports.parseLines = void 0;
 var replaceTabsAndSpacesModule = require("./parser/replace-tabs-and-spaces");
 var splitToLinesModule = require("./parser/split-to-lines");
 var cascadeLinesModule = require("./parser/cascade-lines");
-var removeSpacesModule = require("./parser/remove-spaces");
+var filtratorModule = require("./parser/filtrator");
 function reType(tokens) {
     return tokens;
 }
@@ -12,7 +12,11 @@ function parseLines(tokens) {
     var tokensWithoutTabs = replaceTabsAndSpacesModule.run(reType(tokens));
     var lines = splitToLinesModule.run(tokensWithoutTabs);
     var cascadedLines = cascadeLinesModule.run(lines);
-    var cascadedLinesWithoutSpace = removeSpacesModule.run(cascadedLines);
-    return cascadedLinesWithoutSpace;
+    var cascadedLinesWithoutSpace = filtratorModule.removeSpaces(cascadedLines);
+    var cascadedLinesWithoutComments = filtratorModule.removeComments(cascadedLinesWithoutSpace);
+    var pureLines = cascadedLinesWithoutComments.filter(function (el) {
+        return el.tokens.length !== 0;
+    });
+    return pureLines;
 }
 exports.parseLines = parseLines;

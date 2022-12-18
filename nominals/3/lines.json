@@ -38,11 +38,5 @@
             { "name": "bool-more", "pos": 61, "val": ">" },
             { "name": "integer", "pos": 63, "val": "3" }
         ]
-    },
-    {
-        "cascade": 0,
-        "tokens": [
-            { "name": "inline-comment", "pos": 66, "val": "//=> [4, 6]" }
-        ]
     }
 ]
