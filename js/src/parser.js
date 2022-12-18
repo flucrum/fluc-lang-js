@@ -1,15 +1,18 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.parseLines = void 0;
-var replaceTabsAndSpaces = require("./parser/replace-tabs-and-spaces");
-var splitToLines = require("./parser/split-to-lines");
-var cascadeLines = require("./parser/cascade-lines");
+var replaceTabsAndSpacesModule = require("./parser/replace-tabs-and-spaces");
+var splitToLinesModule = require("./parser/split-to-lines");
+var cascadeLinesModule = require("./parser/cascade-lines");
+var removeSpacesModule = require("./parser/remove-spaces");
 function reType(tokens) {
     return tokens;
 }
 function parseLines(tokens) {
-    var tokensWithoutTabs = replaceTabsAndSpaces.run(reType(tokens));
-    var lines = splitToLines.run(tokensWithoutTabs);
-    return cascadeLines.run(lines);
+    var tokensWithoutTabs = replaceTabsAndSpacesModule.run(reType(tokens));
+    var lines = splitToLinesModule.run(tokensWithoutTabs);
+    var cascadedLines = cascadeLinesModule.run(lines);
+    var cascadedLinesWithoutSpace = removeSpacesModule.run(cascadedLines);
+    return cascadedLinesWithoutSpace;
 }
 exports.parseLines = parseLines;
