@@ -1,8 +1,11 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.parseLines = void 0;
+function reType(tokens) {
+    return tokens;
+}
 function parseLines(tokens) {
-    var tokensWithoutTabs = replaceTabsAndSpaces(tokens);
+    var tokensWithoutTabs = replaceTabsAndSpaces(reType(tokens));
     var lines = splitToLines(tokensWithoutTabs);
     return cascadeLines(lines);
 }

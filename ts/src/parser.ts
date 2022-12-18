@@ -1,22 +1,22 @@
 import * as lexerModule from "./lexer";
+import * as typesModule from "./parser/types";
 
-type Phrase = Array<lexerModule.FlucToken>;
-
-type Line = {
-    cascade: number;
-    tokens: Array<lexerModule.FlucToken>;
+function reType(tokens: Array<lexerModule.FlucToken>): Array<typesModule.Token>
+{
+    return tokens;
 }
 
-export function parseLines(tokens: Array<lexerModule.FlucToken>): Array<Line>
+
+export function parseLines(tokens: Array<lexerModule.FlucToken>): Array<typesModule.Line>
 {
-    let tokensWithoutTabs: Array<lexerModule.FlucToken> = replaceTabsAndSpaces(tokens);
-    let lines: Array<Line> = splitToLines(tokensWithoutTabs);
+    let tokensWithoutTabs: Array<typesModule.Token> = replaceTabsAndSpaces(reType(tokens));
+    let lines: Array<typesModule.Line> = splitToLines(tokensWithoutTabs);
     return cascadeLines(lines);
 }
 
-function replaceTabsAndSpaces(tokens: Array<lexerModule.FlucToken>): Array<lexerModule.FlucToken>
+function replaceTabsAndSpaces(tokens: Array<typesModule.Token>): Array<typesModule.Token>
 {
-    let result: Array<lexerModule.FlucToken> = [];
+    let result: Array<typesModule.Token> = [];
     tokens.forEach(el => {
         if(el.name === 'tab') {
             for(let i = 0; i < 4 * el.val.length; i ++) {
@@ -41,10 +41,10 @@ function replaceTabsAndSpaces(tokens: Array<lexerModule.FlucToken>): Array<lexer
     return result;
 }
 
-function splitToLines(tokens: Array<lexerModule.FlucToken>): Array<Line>
+function splitToLines(tokens: Array<typesModule.Token>): Array<typesModule.Line>
 {
-    let lines: Array<Line> = [];
-    let curLine: Array<lexerModule.FlucToken> = [];
+    let lines: Array<typesModule.Line> = [];
+    let curLine: Array<typesModule.Token> = [];
     tokens.forEach(el => {
         if(el.name === 'new-line') {
             lines.push({ cascade: 0, tokens: curLine, });
@@ -59,7 +59,7 @@ function splitToLines(tokens: Array<lexerModule.FlucToken>): Array<Line>
     return lines;
 }
 
-function cascadeLines(lines: Array<Line>): Array<Line>
+function cascadeLines(lines: Array<typesModule.Line>): Array<typesModule.Line>
 {
     return lines.map(el => {
         let tokensLength = el.tokens.length;
