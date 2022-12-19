@@ -1,6 +1,6 @@
 import * as assertModule from "assert";
 import * as lexerModule from "../src/lexer";
-import * as parserModule from "../src/parser";
+import * as parserModule from "../src/pre-parser";
 import * as pathModule from "path";
 import * as fsModule from "fs";
 

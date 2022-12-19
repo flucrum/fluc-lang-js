@@ -1,9 +1,9 @@
 import * as lexerModule from "./lexer";
-import * as typesModule from "./parser/types";
-import * as replaceTabsAndSpacesModule from "./parser/replace-tabs-and-spaces";
-import * as splitToLinesModule from "./parser/split-to-lines";
-import * as cascadeLinesModule from "./parser/cascade-lines";
-import * as filtratorModule from "./parser/filtrator";
+import * as typesModule from "./pre-parser/types";
+import * as replaceTabsAndSpacesModule from "./pre-parser/replace-tabs-and-spaces";
+import * as splitToLinesModule from "./pre-parser/split-to-lines";
+import * as cascadeLinesModule from "./pre-parser/cascade-lines";
+import * as filtratorModule from "./pre-parser/filtrator";
 
 function reType(tokens: Array<lexerModule.FlucToken>): Array<typesModule.Token>
 {

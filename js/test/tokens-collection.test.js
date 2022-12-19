@@ -2,7 +2,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 var assertModule = require("assert");
 var lexerModule = require("../src/lexer");
-var parserModule = require("../src/parser");
+var parserModule = require("../src/pre-parser");
 var pathModule = require("path");
 var fsModule = require("fs");
 var lexer = lexerModule.parseLoadFromConfig(pathModule.resolve(__dirname, "../../lexics/config.json"));
