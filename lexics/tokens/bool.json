@@ -6,6 +6,8 @@
     { "name": "bool-less", "regExp": "<" },
     { "name": "bool-more-eq", "regExp": ">=" },
     { "name": "bool-less-eq", "regExp": "<=" },
-    { "name": "bool-or", "regExp": "\\|" },
-    { "name": "bool-and", "regExp": "\\&" }
+    { "name": "bit-or", "regExp": "\\|" },
+    { "name": "bit-and", "regExp": "\\&" },
+    { "name": "bool-or", "regExp": "\\|\\|" },
+    { "name": "bool-and", "regExp": "\\&\\&" }
 ]

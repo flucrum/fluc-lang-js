@@ -1,0 +1,87 @@
+[
+    {
+        "operator": "&",
+        "proirity": 4,
+        "fix": "infix"
+    },
+    {
+        "operator": "|",
+        "proirity": 4,
+        "fix": "infix"
+    },
+    {
+        "operator": "&&",
+        "proirity": 3,
+        "fix": "infix"
+    },
+    {
+        "operator": "||",
+        "proirity": 2,
+        "fix": "infix"
+    },
+    {
+        "operator": "=",
+        "proirity": 4,
+        "fix": "infix"
+    },
+    {
+        "operator": "!=",
+        "proirity": 4,
+        "fix": "infix"
+    },
+    {
+        "operator": "<",
+        "proirity": 4,
+        "fix": "infix"
+    },
+    {
+        "operator": "<=",
+        "proirity": 4,
+        "fix": "infix"
+    },
+    {
+        "operator": ">",
+        "proirity": 4,
+        "fix": "infix"
+    },
+    {
+        "operator": ">=",
+        "proirity": 4,
+        "fix": "infix"
+    },
+    {
+        "operator": "++",
+        "proirity": 5,
+        "fix": "infix"
+    },
+    {
+        "operator": "+",
+        "proirity": 6,
+        "fix": "infix"
+    },
+    {
+        "operator": "-",
+        "proirity": 6,
+        "fix": "infix"
+    },
+    {
+        "operator": "*",
+        "proirity": 7,
+        "fix": "infix"
+    },
+    {
+        "operator": "/",
+        "proirity": 7,
+        "fix": "infix"
+    },
+    {
+        "operator": "%",
+        "proirity": 7,
+        "fix": "infix"
+    },
+    {
+        "operator": "!",
+        "proirity": 8,
+        "fix": "infix"
+    }
+]
